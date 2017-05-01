@@ -1,0 +1,6 @@
+Apr 25, 2017 8:31:54 PM logger.LoggerFactory getLogger
+INFO: log file created
+Apr 25, 2017 8:31:54 PM logger.LoggerFactory getLogger
+INFO: Logger ready
+Apr 25, 2017 8:32:00 PM chat.client.ServerHandler run
+WARNING: could not read message de serverInOS

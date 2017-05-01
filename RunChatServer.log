@@ -1,0 +1,8 @@
+Apr 25, 2017 8:31:41 PM logger.LoggerFactory getLogger
+INFO: log file created
+Apr 25, 2017 8:31:41 PM logger.LoggerFactory getLogger
+INFO: Logger ready
+Apr 25, 2017 8:31:41 PM RunChatServer launch
+SEVERE: Unable to set Server socket timeout, abort ...
+Apr 25, 2017 8:31:41 PM RunChatServer launch
+SEVERE: Address already in use (Bind failed)
