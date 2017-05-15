@@ -1,7 +1,5 @@
 import java.awt.EventQueue;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Vector;
@@ -261,7 +259,7 @@ public class RunChatClient extends AbstractRunChat
 			try
 			{
 				// userOut = TODO Complete ...
-				throw new IOException(); // TODO Remove when done
+				userOut = new PipedOutputStream(frame.getInPipe());
 			}
 			catch (IOException e)
 			{
@@ -280,8 +278,8 @@ public class RunChatClient extends AbstractRunChat
 			try
 			{
 				// userIn = TODO Complete ...
-				throw new IOException(); // TODO Remove when done
-			}
+				userIn = new PipedInputStream(frame.getOutPipe());
+			}	
 			catch (IOException e)
 			{
 				logger.severe(Failure.USER_INPUT_STREAM
