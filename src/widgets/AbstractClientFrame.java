@@ -158,6 +158,7 @@ public abstract class AbstractClientFrame extends JFrame implements Runnable
 		if (message != null)
 		{
 			outPW.println(message);
+			outPW.flush();
 			if (outPW.checkError())
 			{
 				logger.warning("ClientFrame::sendMessage: error writing");

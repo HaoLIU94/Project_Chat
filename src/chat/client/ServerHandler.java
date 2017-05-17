@@ -194,7 +194,6 @@ class ServerHandler implements Runnable
 						try
 						{
 							userOutOS.writeObject(message);
-							logger.warning("In ServerHandler : could not send message to user using UserOutPW.");
 						}
 						catch (IOException e)
 						{
