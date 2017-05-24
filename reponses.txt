@@ -1,38 +1,35 @@
-Prénom:Hao Nom:LIU Groupe 1
-
 Réponses aux question de la partie UML : 
 
-1- A quoi sert la classe AbstractRunChat ?
+- A quoi sert la classe AbstractRunChat ?
+  Pour faire de la factorisation de code en ne donnant qu'une implémentation partielle.
 
-Pour géniraliser des membres communs aux sous classes (ici ce sont RunChatServer et RunChatClient) sans connaître encore le détail de l'implémentation
 
-2- Expliquez la relation ChatServer / InputOutputClient concrétisée par l’attribut « clients ».
+- Expliquez la relation ChatServer / InputOutputClient concrétisée par l’attribut « clients ».
+  clients sert à créer un tableau (vecteur) de clients dans le serveur.
 
-La classe InputOutoutCLient est composée dans la classe CharServer pour qu'elle ait l'attribut clients et puisse traiter les IO opérations
+- Expliquez la relation ClientHandler / InputClient concrétisée par l’attribut « mainClient ».
+  mainClient pour créer le client principal du serveur.
 
-3- Expliquez la relation ClientHandler / InputClient concrétisée par l’attribut « mainClient ».
 
-La classe InputCLient agrége dans la classe ClientHandler, c'est pour que ClientHandler puisse lire les InputStream de clients
+- Expliquez la relation ClientHandler / InputOutputClient concrétisée par l’attribut « allClients ».
+  allClients vecteur de tous les autres clients reliés au serveur.
 
-4- Expliquez la relation ClientHandler / InputOutputClient concrétisée par l’attribut « allClients ».
 
-La classe InputOutputClient agérge dans la classe ClientHandle, ClientHandle peut rediffuser les messages aux autres clients
-
-5- Combien de threads tournent sur un serveur dans le scénario présenté par la Figure 1 (page 1) ? 
+- Combien de threads tournent sur un serveur dans le scénario présenté par la Figure 1 (page 1) ? 
   Détaillez votre réponse en précisant qui lance qui.
+  2 threads :
+    Le serveur se met en écoute de chaque client il crée un thread pour chacun 
 
-3 threads tournent sur le serveur,dans l'ordre c'est ChatServer, ChatClient1, ChatClient2
-
-6- Combien de threads tournent dans le Client 1 du scénario présenté par la Figure 1 (page 1) ?
+- Combien de threads tournent dans le Client 1 du scénario présenté par la Figure 1 (page 1) ?
   Détaillez votre réponse en précisant qui lance qui.
+  3 threads :
+    1 thread par défault
+    1 thread pour communiquer avec le serveur
+    1 thread pour l'utilisateur
 
-1 thread, que elle même
+- A quoi sert le threads[i].join() à la fin du run de ChatClient ?
+  Bloque le thread appelant jusqu’à ce que le thread représenté par cette instance s’arrête.
 
-7- A quoi sert le threads[i].join() à la fin du run de ChatClient ?
-
-Ça sert à trouver client l'un et l'autre par le server. Pour qu'il ne se pas trompe de rediffuser des messages
-
-8- Que représente la classe ChatClient dans le cadre d’une architecture MVC ?
-
-La classe ChatClient est agéré de UserHandle et ServerHandle. Pour l'architecture MVC, ici on sépare le model dans la classe ChatClient et le controle c'est ServerHandle, et la vue, c'est UserHandle. 
+- Que représente la classe ChatClient dans le cadre d’une architecture MVC ?
+  le client est un MVC ; c'est pour découper le logiciel en trois partie : Modèle, Vue et Controleur qui fait le lien entre la vue et le modèle.
 

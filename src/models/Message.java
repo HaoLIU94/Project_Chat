@@ -4,8 +4,9 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.Iterator;
-import java.util.Vector;
+import java.util.Set;
 
 /**
  * Classe contenant un message envoyé par le serveur.
@@ -66,7 +67,37 @@ public class Message implements Serializable, Comparable<Message>
 	 * des différents éléments de {@link MessageOrder} dans n'importe quel
 	 * ordre.
 	 */
-	protected static Vector<MessageOrder> orders = new Vector<MessageOrder>();
+	protected static Set<MessageOrder> orders = EnumSet.of(MessageOrder.DATE);
+
+	/**
+	 * Ajout d'un critère de tri aux critères de tri
+	 * @param o le critère à ajouter
+	 * @return true si le critère de tri n'était pas déjà présent dans
+	 * l'ensemble et qu'il a pu être ajouté, false sinon.
+	 */
+	public static boolean addOrder(MessageOrder o)
+	{
+		return orders.add(o);
+	}
+
+	/**
+	 * Retrait d'un critère de tri aux critères de tri
+	 * @param o le critère de tri à retirer
+	 * @return true si le crière de tri était présent dans l'ensemble des
+	 * critères et qu'il a été retiré, false sinon.
+	 */
+	public static boolean removeOrder(MessageOrder o)
+	{
+		return orders.remove(o);
+	}
+
+	/**
+	 * Effacement de l'ensemble des critères de tri
+	 */
+	public static void clearOrders()
+	{
+		orders.clear();
+	}
 
 	/**
 	 * La date d'arrivée du message
@@ -383,44 +414,4 @@ public class Message implements Serializable, Comparable<Message>
 		return compare;
 	}
 
-	/**
-	 * Ajout d'un critère de tri aux critères de tri
-	 * @param o le critère à ajouter
-	 * @return true si le critère de tri n'était pas déjà présent dans
-	 * l'ensemble et qu'il a pu être ajouté, false sinon.
-	 */
-	public static boolean addOrder(MessageOrder o)
-	{
-		if (o != null)
-		{
-			if (!orders.contains(o))
-			{
-				return orders.add(o);
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * Retrait d'un critère de tri aux critères de tri
-	 * @param o le critère de tri à retirer
-	 * @return true si le crière de tri était présent dans l'ensemble des
-	 * critères et qu'il a été retiré, false sinon.
-	 */
-	public static boolean removeOrder(MessageOrder o)
-	{
-		if (o != null)
-		{
-			return orders.remove(o);
-		}
-		return false;
-	}
-
-	/**
-	 * Effacement de l'ensemble des critères de tri
-	 */
-	public static void clearOrders()
-	{
-		orders.clear();
-	}
 }

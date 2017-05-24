@@ -177,7 +177,7 @@ class ServerHandler implements Runnable
 			Message message = null;
 			try
 			{
-				message = (Message)(serverInOS.readObject());
+				message = (Message)serverInOS.readObject();
 			}
 			catch(Exception e)
 			{
@@ -203,7 +203,7 @@ class ServerHandler implements Runnable
 						break; // Break this switch
 					case TEXT:
 					default:
-						userOutPW.println(message);
+						userOutPW.println(message.toString());
 						break;
 				}
 				if (error)

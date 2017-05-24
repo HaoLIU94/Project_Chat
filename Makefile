@@ -209,7 +209,7 @@ rungui2 : all
 # Lancement d'un serveur, puis de 2 clients (l'un console, l'autre graphique)		
 rundemo : all
 	$(TERM)  -title server -e $(JAVA) -classpath $(BIN):$(CLASSPATH) RunChatServer & \
-	sleep 2;
+	sleep 1;
 	$(TERM) -title "Zébulon" -e $(JAVA) -classpath $(BIN):$(CLASSPATH) RunChatClient --name Zebulon & \
-	$(JAVA) -classpath $(BIN):$(CLASSPATH) RunChatClient --name Ténéphore --gui 1 & \
-	$(JAVA) -classpath $(BIN):$(CLASSPATH) RunChatClient --name Anatole --gui 2;
+	$(JAVA) -classpath $(BIN):$(CLASSPATH) RunChatClient --name Loubna --gui 2 & \
+	$(JAVA) -classpath $(BIN):$(CLASSPATH) RunChatClient --name Hao --gui 2;

@@ -9,6 +9,7 @@ import chat.UserOutputType;
 import chat.client.ChatClient;
 import widgets.AbstractClientFrame;
 import widgets.ClientFrame;
+import widgets.ClientFrame2;
 
 /**
  * Lanceur d'un client de chat.
@@ -248,7 +249,16 @@ public class RunChatClient extends AbstractRunChat
 			 * TODO à customizer lorsrque vous aurez créé la classe
 			 * ClientFrame2
 			 */
-			final AbstractClientFrame frame = new ClientFrame(name, host, commonRun, logger);
+			final AbstractClientFrame frame;
+			if(guiVersion == 1)
+			{
+				frame = new ClientFrame(name, host, commonRun, logger); 
+			}
+			else
+			{
+				frame = new ClientFrame2(name, host, commonRun, logger);
+			}
+
 
 			/*
 			 * TODO Création du flux de sortie vers le GUI : userOut à partir du

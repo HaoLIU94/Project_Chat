@@ -1,5 +1,9 @@
-/RunChatClient$1.class
-/widgets/
+/AbstractRunChat.class
+/RunChatClient.class
+/RunChatServer.class
 /chat/
+/examples/
 /logger/
 /models/
+/widgets/
+/RunChatClient$1.class
